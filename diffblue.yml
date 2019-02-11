@@ -1,0 +1,347 @@
+# Tested on Deeptest release 1.10.0
+cbmcArguments:
+  cover-function-only: false
+  depth: false
+  do-not-test-methods-with-access: [ private ]
+  java-generate-no-comments: true
+  no-trivial-tests: true
+phases:
+-
+  timeout: 300
+  cbmcArguments:
+    java-assume-inputs-non-null: true
+    max-nondet-array-length: 10
+    string-non-empty: true
+    unwind: 1
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 20
+    unwind: 2
+-
+  timeout: 300
+  cbmcArguments:
+    max-nondet-array-length: 30
+    max-nondet-string-length: 10
+    unwind: 3
+units:
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/RazorHistoryParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/RazorHistoryParser.java
+    # Child of RazorHistoryParser.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/logger/LoggerFactory.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/logger/LoggerFactory.java
+    # Child of RazorHistoryParser.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/StringUtils.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/StringUtils.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/index/IndexerUtil.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/index/IndexerUtil.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/MonotoneHistoryParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/MonotoneHistoryParser.java
+    # Child of MonotoneHistoryParser.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/configuration/RuntimeEnvironment.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/configuration/RuntimeEnvironment.java
+    # Child of MonotoneHistoryParser.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/Executor.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/Executor.java
+    # Child of MonotoneHistoryParser.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/ForbiddenSymlinkException.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/ForbiddenSymlinkException.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/search/context/Context.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/search/context/Context.java
+    # Child of Context.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/AbstractAnalyzer.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/AbstractAnalyzer.java
+    # Child of Context.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/Definitions.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/Definitions.java
+    # Child of Context.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/Scopes.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/Scopes.java
+    # Child of Context.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/plain/PlainAnalyzerFactory.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/plain/PlainAnalyzerFactory.java
+    # Child of Context.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/search/Hit.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/search/Hit.java
+    # Child of Context.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/search/QueryBuilder.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/search/QueryBuilder.java
+    # Child of Context.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/IOUtils.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/IOUtils.java
+    # Child of Context.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/web/Util.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/web/Util.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/BazaarHistoryParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/BazaarHistoryParser.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/MercurialTagParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/MercurialTagParser.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/SCCSHistoryParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/SCCSHistoryParser.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/CVSHistoryParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/CVSHistoryParser.java
+  - target:
+    - dir: suggester/target/classes
+      file: org/opengrok/suggest/SuggesterSearcher.class
+      sourceDir: suggester/src/main/java
+      sourceFile: org/opengrok/suggest/SuggesterSearcher.java
+    # Child of SuggesterSearcher.class
+    - dir: suggester/target/classes
+      file: org/opengrok/suggest/popular/PopularityCounter.class
+      sourceDir: suggester/src/main/java
+      sourceFile: org/opengrok/suggest/popular/PopularityCounter.java
+    # Child of SuggesterSearcher.class
+    - dir: suggester/target/classes
+      file: org/opengrok/suggest/query/SuggesterRangeQuery.class
+      sourceDir: suggester/src/main/java
+      sourceFile: org/opengrok/suggest/query/SuggesterRangeQuery.java
+    # Child of SuggesterSearcher.class
+    - dir: suggester/target/classes
+      file: org/opengrok/suggest/query/data/BitIntsHolder.class
+      sourceDir: suggester/src/main/java
+      sourceFile: org/opengrok/suggest/query/data/BitIntsHolder.java
+    # Child of SuggesterSearcher.class
+    - dir: suggester/target/classes
+      file: org/opengrok/suggest/query/data/IntsHolder.class
+      sourceDir: suggester/src/main/java
+      sourceFile: org/opengrok/suggest/query/data/IntsHolder.java
+    # Child of SuggesterSearcher.class
+    - dir: suggester/target/classes
+      file: org/opengrok/suggest/query/PhraseScorer.class
+      sourceDir: suggester/src/main/java
+      sourceFile: org/opengrok/suggest/query/PhraseScorer.java
+    # Child of SuggesterSearcher.class
+    - dir: suggester/target/classes
+      file: org/opengrok/suggest/query/SuggesterQuery.class
+      sourceDir: suggester/src/main/java
+      sourceFile: org/opengrok/suggest/query/SuggesterQuery.java
+    # Child of SuggesterSearcher.class
+    - dir: suggester/target/classes
+      file: org/opengrok/suggest/query/customized/CustomPhraseQuery.class
+      sourceDir: suggester/src/main/java
+      sourceFile: org/opengrok/suggest/query/customized/CustomPhraseQuery.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/GitHistoryParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/GitHistoryParser.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/index/Indexer.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/index/Indexer.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/Info.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/Info.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/AnalyzerGuru.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/AnalyzerGuru.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/AnalyzerGuruHelp.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/AnalyzerGuruHelp.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/configuration/Configuration.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/configuration/Configuration.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/configuration/ConfigurationHelp.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/configuration/ConfigurationHelp.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/configuration/LuceneLockName.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/configuration/LuceneLockName.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/configuration/Project.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/configuration/Project.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/HistoryGuru.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/HistoryGuru.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/Repository.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/Repository.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/RepositoryFactory.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/RepositoryFactory.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/RepositoryInfo.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/RepositoryInfo.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/logger/LoggerUtil.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/logger/LoggerUtil.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/OptionParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/OptionParser.java
+    # Child of Indexer.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/Statistics.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/Statistics.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/plain/PlainAnalyzerFactory.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/plain/PlainAnalyzerFactory.java
+    # Child of PlainAnalyzerFactory.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/AnalyzerFactory.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/AnalyzerFactory.java
+    # Child of PlainAnalyzerFactory.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/FileAnalyzerFactory.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/FileAnalyzerFactory.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/MercurialHistoryParser.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/MercurialHistoryParser.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/index/IndexDatabase.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/index/IndexDatabase.java
+    # Child of IndexDatabase.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/Ctags.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/Ctags.java
+    # Child of IndexDatabase.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/HistoryException.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/HistoryException.java
+    # Child of IndexDatabase.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/ObjectPool.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/ObjectPool.java
+    # Child of IndexDatabase.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/TandemPath.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/TandemPath.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/search/context/StrictLineBreakIterator.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/search/context/StrictLineBreakIterator.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/search/context/HistoryContext.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/search/context/HistoryContext.java
+    # Child of HistoryContext.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/History.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/History.java
+    # Child of HistoryContext.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/HistoryEntry.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/HistoryEntry.java
+    # Child of HistoryContext.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/web/Prefix.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/web/Prefix.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/ClassUtil.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/ClassUtil.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/history/RepositoryFactory.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/history/RepositoryFactory.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/util/LineBreaker.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/util/LineBreaker.java
+    # Child of LineBreaker.class
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/analysis/StreamSource.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/analysis/StreamSource.java
+  - target:
+    - dir: opengrok-indexer/target/classes
+      file: org/opengrok/indexer/configuration/WatchDogService.class
+      sourceDir: opengrok-indexer/src/main/java
+      sourceFile: org/opengrok/indexer/configuration/WatchDogService.java
